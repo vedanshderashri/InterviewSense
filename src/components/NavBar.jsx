@@ -33,7 +33,7 @@ export default function NavBar() {
               to="/interview"
               className="bg-brand-primary hover:bg-brand-secondary text-white px-5 py-2 rounded-full transition-all shadow-lg shadow-brand-primary/20"
             >
-              Start Free Trial
+              Sign-up
             </Link>
           </div>
         </div>
