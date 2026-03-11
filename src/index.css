@@ -1,0 +1,108 @@
+﻿/* Global styles for the project */
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.bg-mesh {
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(263, 70%, 50%, 0.15) 0, transparent 50%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate3d(var(--cursor-x), var(--cursor-y), 0) scale(var(--cursor-scale, 1));
+    transition: transform 0.16s ease, opacity 0.16s ease;
+    opacity: 0;
+    user-select: none;
+  }
+
+  .custom-cursor.cursor--visible {
+    opacity: 1;
+  }
+
+  .custom-cursor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.35), transparent 70%);
+    transform: scale(0.9);
+    filter: blur(4px);
+  }
+
+  .custom-cursor__inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transition: transform 0.12s ease, background 0.12s ease;
+  }
+
+  .custom-cursor.cursor--active .custom-cursor__inner {
+    transform: translate(-50%, -50%) scale(1.6);
+    background: rgba(99, 102, 241, 0.85);
+  }
+}
+
+@keyframes blob-move {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(20px, -20px, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-15px, 15px, 0) scale(0.95);
+  }
+  75% {
+    transform: translate3d(10px, 10px, 0) scale(1.02);
+  }
+}
+
+.animate-blob {
+  animation: blob-move 8s ease-in-out infinite;
+}
